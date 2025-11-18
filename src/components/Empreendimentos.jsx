@@ -182,6 +182,9 @@ const Empreendimentos = () => {
         {/* CTA MY LIKE */}
         <div className="mylike-cta">
           <div className="mylike-cta-content">
+            <div className="mylike-cta-logo">
+              <img src="/logo-mylike.png" alt="My Like Logo" />
+            </div>
             <div className="mylike-cta-text">
               <h2 className="mylike-cta-title">MY LIKE</h2>
               <p className="mylike-cta-subtitle">Campo Limpo - São Paulo</p>
