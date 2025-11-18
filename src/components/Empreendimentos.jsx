@@ -43,7 +43,7 @@ const Empreendimentos = () => {
     {
       nome: 'MY LIKE Campo Limpo',
       cidade: 'São Paulo',
-      imagem: null,
+      imagem: '/Mylike/torre-mylike.png',
       descricao: '2 Dorms.',
       status: 'Futuro Lançamento'
     },
