@@ -3,15 +3,7 @@ import './SobreNos.css'
 const SobreNos = () => {
   return (
     <div className="sobre-nos-page">
-      {/* Vídeo de fundo */}
-      <div className="video-background">
-        <video autoPlay loop muted playsInline>
-          <source src="/videodatelainicial.mp4" type="video/mp4" />
-          Seu navegador não suporta vídeos HTML5.
-        </video>
-      </div>
-
-      {/* Conteúdo sobreposto */}
+      {/* Conteúdo */}
       <div className="content-overlay">
         {/* Hero Section */}
         <section className="hero-section">

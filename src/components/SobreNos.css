@@ -5,32 +5,7 @@
   overflow: hidden;
 }
 
-/* Vídeo de fundo */
-.video-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-  background-color: var(--color-background);
-  overflow: hidden;
-}
-
-.video-background video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: cover;
-  opacity: 0.7;
-}
-
-/* Overlay de conteúdo */
+/* Conteúdo */
 .content-overlay {
   position: relative;
   z-index: 1;
@@ -410,9 +385,6 @@
 
 /* Responsividade */
 @media (max-width: 768px) {
-  .video-background {
-    width: 100%;
-  }
 
   .hero-section,
   .content-section,
