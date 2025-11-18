@@ -23,3 +23,9 @@ dist-ssr
 *.sln
 *.sw?
 
+# Videos
+*.mp4
+*.mov
+*.avi
+src/Videos/
+
