@@ -1,0 +1,32 @@
+.logo-container {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .logo-container {
+    top: 15px;
+    left: 15px;
+  }
+
+  .logo {
+    height: 45px;
+  }
+}
+

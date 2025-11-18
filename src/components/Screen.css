@@ -1,0 +1,46 @@
+.screen {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background-color: var(--color-background);
+  padding: 40px;
+  padding-right: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.screen-content {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+}
+
+.screen-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: var(--color-text);
+}
+
+.screen-content p {
+  font-size: 1.2rem;
+  color: var(--color-text);
+  opacity: 0.8;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .screen {
+    margin-right: 15%;
+    padding: 20px;
+  }
+
+  .screen-content h1 {
+    font-size: 2rem;
+  }
+
+  .screen-content p {
+    font-size: 1rem;
+  }
+}
+
