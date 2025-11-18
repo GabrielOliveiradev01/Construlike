@@ -1,5 +1,4 @@
 import './SobreNos.css'
-import videoFundo from '../Videos/videodatelainicial.mp4'
 
 const SobreNos = () => {
   return (
@@ -7,7 +6,7 @@ const SobreNos = () => {
       {/* Vídeo de fundo */}
       <div className="video-background">
         <video autoPlay loop muted playsInline>
-          <source src={videoFundo} type="video/mp4" />
+          <source src="/videodatelainicial.mp4" type="video/mp4" />
           Seu navegador não suporta vídeos HTML5.
         </video>
       </div>
