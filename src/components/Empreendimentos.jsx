@@ -1,7 +1,12 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './Empreendimentos.css'
 
 const Empreendimentos = () => {
+  // Scroll para o topo quando o componente for montado
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [])
   // Lista de empreendimentos que terão o botão "Saiba Mais"
   const empreendimentosComBotao = [
     'Idea Home Resort',
@@ -19,6 +24,13 @@ const Empreendimentos = () => {
   }
 
   const emObras = [
+    {
+      nome: 'MY LIKE Campo Limpo',
+      cidade: 'São Paulo',
+      imagem: '/Mylike/torre-mylike.png',
+      descricao: '2 Dorms.',
+      status: 'Futuro Lançamento'
+    },
     {
       nome: 'Idea Home Resort',
       cidade: 'São Paulo',
@@ -39,13 +51,6 @@ const Empreendimentos = () => {
       imagem: 'https://construlike.com.br/wp-content/uploads/2024/10/Prohidro_Joao_Dias_Fachada_HR.jpg',
       descricao: '2 Dorms. 34m² e 43 m²',
       status: 'Em Obras'
-    },
-    {
-      nome: 'MY LIKE Campo Limpo',
-      cidade: 'São Paulo',
-      imagem: '/Mylike/torre-mylike.png',
-      descricao: '2 Dorms.',
-      status: 'Futuro Lançamento'
     },
     {
       nome: 'Av. Itavuvu',

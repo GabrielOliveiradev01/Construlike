@@ -8,10 +8,28 @@ const MyLikePerspectiva = () => {
     nome: 'MY LIKE Campo Limpo',
     cidade: 'São Paulo',
     status: 'Futuro Lançamento',
-    descricao: '2 Dorms.',
+    descricao: '1 ou 2 dorms. 27,36 m² a 37,01 m²',
     slogan: 'Descubra o novo conceito de morar. Um empreendimento que combina conforto, modernidade e qualidade de vida.',
-    endereco: 'Campo Limpo - São Paulo/SP',
+    endereco: 'Avenida Professora Nina Stocco, 1.176 - Campo Limpo - São Paulo/SP',
     imagemPrincipal: '/Mylike/torre-mylike.png',
+    informacoes: {
+      incorporacao: 'Construlike Construtora e Incorporadora Ltda.',
+      projetoArquitetonico: 'Rubio Longo',
+      quantidadeApartamentos: 322,
+      metragens: '27,36 m² / 36,65 m² / 36,97 m² / 37,01 m²',
+      tiposUnidades: '1 ou 2 dorms',
+      vagasResidenciais: 103,
+      vagasVinculadas: 24,
+      vagasVenda: 79,
+      quantidadeLojas: 2,
+      loja01: '322,94 m²',
+      loja02: '228,70 m²',
+      vagasLojas: 4,
+      areaTerreno: '2.870,65 m²',
+      quantidadePavimentos: 13,
+      detalhesPavimentos: '2 subsolos, térreo, 9 pavimentos e área técnica',
+      numeroElevadores: 6
+    },
     galeria: {
       perspectivas: [
         '/Mylike/Perspectiva/Prohidro_Morumbi_Barbearia_HR.jpg',
@@ -49,12 +67,69 @@ const MyLikePerspectiva = () => {
       'Localização privilegiada',
       'Alto padrão de acabamento',
       'Sustentabilidade e eficiência energética'
-    ]
+    ],
+    sustentabilidade: [
+      'Hidrômetro individual entregue instalado',
+      'Previsão para instalação de medidor de gás individual',
+      'Sensores de presença nas áreas de circulação de uso comum',
+      'Bacias sanitárias inteligentes',
+      'Elevadores com motores de alta performance',
+      'Lâmpadas econômicas (LED)',
+      'Torneiras com temporizador na área comum',
+      'Reaproveitamento de resíduos cimentícios nas obras',
+      'Equipamentos da área comum com selo PROCEL A de eficiência energética',
+      'Bicicletário para incentivo ao transporte alternativo'
+    ],
+    plantas: [
+      { nome: '23,36 m² - 1 dorm varanda', imagem: '' },
+      { nome: '37,01 m² - 2 dorms varanda e vaga', imagem: '' },
+      { nome: '37,01 m² - 2 dorms varanda vaga', imagem: '' }
+    ],
+    implantacao: '',
+    amenidades: [
+      'Portaria',
+      'Lobby',
+      'Piscina adulto',
+      'Piscina infantil',
+      'Bangalô',
+      'Sala fitness',
+      'Academia',
+      'Cross training',
+      'Beach arena',
+      'Quadra recreativa',
+      'Salão de festas',
+      'Gourmet',
+      'Churrasqueira',
+      'Coworking',
+      'Sala de reunião*',
+      'Playground',
+      'Brinquedoteca',
+      'Espaço podcast*',
+      'Salão de jogos/ teens',
+      'Sala de cinema*',
+      'Espaço beauty*',
+      'Espaço zen*',
+      'Espaço barbearia*',
+      'Espaço delivery',
+      'Mini market',
+      'Lavanderia*',
+      'Pet place',
+      'Mirante*',
+      'Ladder',
+      'Boulevard'
+    ],
+    descricaoPlantas: 'Conheça os diferentes tipos de apartamentos disponíveis no MY LIKE Campo Limpo. Cada planta foi cuidadosamente projetada para oferecer o máximo de conforto e funcionalidade.',
+    descricaoImplantacao: 'O MY LIKE Campo Limpo oferece uma ampla gama de amenidades e áreas comuns pensadas para proporcionar bem-estar, lazer e praticidade aos moradores. Um verdadeiro conceito de vida moderna e completa.'
   }
 
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
   const [imagemSelecionada, setImagemSelecionada] = useState(null)
   const imagens = empreendimento.galeria.perspectivas
+
+  // Scroll para o topo quando o componente for montado
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [])
 
   // Auto-play do slider rotativo
   useEffect(() => {
@@ -118,8 +193,20 @@ const MyLikePerspectiva = () => {
         </Link>
       </div>
 
-      {/* Hero Section */}
-      <div className="hero-section" style={{ backgroundImage: `url(${empreendimento.imagemPrincipal})` }}>
+      {/* Hero Section com Vídeo */}
+      <div className="hero-section hero-section-video">
+        <video
+          className="hero-video"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source
+            src="https://66670533221b2cee3d4a1fa219156d7b.cdn.bubble.io/f1763558662691x199743315729881120/189801d4-54aa-464d-89f2-3fb32b388723.mp4"
+            type="video/mp4"
+          />
+        </video>
         <div className="hero-overlay">
           <div className="hero-content">
             <div className="hero-badge">{empreendimento.status}</div>
@@ -207,6 +294,59 @@ const MyLikePerspectiva = () => {
         </section>
       )}
 
+      {/* Informações do Empreendimento */}
+      <section className="informacoes-section">
+        <div className="section-wrapper">
+          <h2 className="section-title">Informações do Empreendimento</h2>
+          <div className="informacoes-grid">
+            <div className="informacao-item">
+              <span className="informacao-label">Incorporação e Construção:</span>
+              <span className="informacao-value">{empreendimento.informacoes.incorporacao}</span>
+            </div>
+            <div className="informacao-item">
+              <span className="informacao-label">Projeto Arquitetônico:</span>
+              <span className="informacao-value">{empreendimento.informacoes.projetoArquitetonico}</span>
+            </div>
+            <div className="informacao-item">
+              <span className="informacao-label">Quantidade de Apartamentos:</span>
+              <span className="informacao-value">{empreendimento.informacoes.quantidadeApartamentos} unidades</span>
+            </div>
+            <div className="informacao-item">
+              <span className="informacao-label">Metragens:</span>
+              <span className="informacao-value">{empreendimento.informacoes.metragens}</span>
+            </div>
+            <div className="informacao-item">
+              <span className="informacao-label">Tipos de Unidades:</span>
+              <span className="informacao-value">{empreendimento.informacoes.tiposUnidades}</span>
+            </div>
+            <div className="informacao-item">
+              <span className="informacao-label">Vagas Residenciais:</span>
+              <span className="informacao-value">{empreendimento.informacoes.vagasResidenciais} vagas ({empreendimento.informacoes.vagasVinculadas} vinculadas e {empreendimento.informacoes.vagasVenda} para venda)</span>
+            </div>
+            <div className="informacao-item">
+              <span className="informacao-label">Quantidade de Lojas:</span>
+              <span className="informacao-value">{empreendimento.informacoes.quantidadeLojas} lojas (Loja 01: {empreendimento.informacoes.loja01} e Loja 02: {empreendimento.informacoes.loja02})</span>
+            </div>
+            <div className="informacao-item">
+              <span className="informacao-label">Vagas Lojas:</span>
+              <span className="informacao-value">{empreendimento.informacoes.vagasLojas} vagas</span>
+            </div>
+            <div className="informacao-item">
+              <span className="informacao-label">Área do Terreno:</span>
+              <span className="informacao-value">{empreendimento.informacoes.areaTerreno}</span>
+            </div>
+            <div className="informacao-item">
+              <span className="informacao-label">Quantidade de Pavimentos:</span>
+              <span className="informacao-value">{empreendimento.informacoes.quantidadePavimentos} ({empreendimento.informacoes.detalhesPavimentos})</span>
+            </div>
+            <div className="informacao-item">
+              <span className="informacao-label">Número de Elevadores:</span>
+              <span className="informacao-value">{empreendimento.informacoes.numeroElevadores} elevadores</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Diferenciais */}
       {empreendimento.diferenciais.length > 0 && (
         <section className="diferenciais-section">
@@ -224,6 +364,85 @@ const MyLikePerspectiva = () => {
           </div>
         </section>
       )}
+
+      {/* Sustentabilidade */}
+      {empreendimento.sustentabilidade && empreendimento.sustentabilidade.length > 0 && (
+        <section className="sustentabilidade-section">
+          <div className="section-wrapper">
+            <h2 className="section-title">Itens de Sustentabilidade</h2>
+            <div className="sustentabilidade-grid">
+              {empreendimento.sustentabilidade.map((item, index) => (
+                <div key={index} className="sustentabilidade-item">
+                  <div className="sustentabilidade-icon">🌱</div>
+                  <p>{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Galeria de Plantas */}
+      {empreendimento.plantas && empreendimento.plantas.length > 0 && (
+        <section className="plantas-section">
+          <div className="section-wrapper">
+            <h2 className="section-title">Galeria de Plantas</h2>
+            <p className="section-subtitle">Todo o conforto que seu apê precisa ter.</p>
+            {empreendimento.descricaoPlantas && (
+              <p className="section-description">{empreendimento.descricaoPlantas}</p>
+            )}
+            <div className="plantas-grid">
+              {empreendimento.plantas.map((planta, index) => (
+                <div key={index} className="planta-item">
+                  {planta.imagem ? (
+                    <img src={planta.imagem} alt={planta.nome} />
+                  ) : (
+                    <div className="planta-placeholder">
+                      <span>{planta.nome}</span>
+                    </div>
+                  )}
+                  <p className="planta-nome">{planta.nome}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Implantação */}
+      <section className="implantacao-section">
+        <div className="section-wrapper">
+          <h2 className="section-title">Implantação e Amenidades</h2>
+          {empreendimento.descricaoImplantacao && (
+            <p className="section-description">{empreendimento.descricaoImplantacao}</p>
+          )}
+          <div className="implantacao-content">
+            {empreendimento.implantacao ? (
+              <img src={empreendimento.implantacao} alt="Implantação" />
+            ) : (
+              <div className="implantacao-placeholder">
+                <span>Imagem de Implantação</span>
+              </div>
+            )}
+          </div>
+          
+          {/* Lista de Amenidades */}
+          {empreendimento.amenidades && empreendimento.amenidades.length > 0 && (
+            <div className="amenidades-container">
+              <h3 className="amenidades-title">Amenidades Disponíveis</h3>
+              <div className="amenidades-grid">
+                {empreendimento.amenidades.map((amenidade, index) => (
+                  <div key={index} className="amenidade-item">
+                    <div className="amenidade-icon">✓</div>
+                    <span>{amenidade}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="amenidades-note">* Amenidades opcionais ou sujeitas a alterações</p>
+            </div>
+          )}
+        </div>
+      </section>
 
       {/* Endereço */}
       <section className="endereco-section">

@@ -1,9 +1,14 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import './EmpreendimentoDetalhes.css'
 
 const EmpreendimentoDetalhes = () => {
   const { slug } = useParams()
+
+  // Scroll para o topo quando o componente for montado ou o slug mudar
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [slug])
   
   // Dados dos empreendimentos
   const empreendimentos = {
