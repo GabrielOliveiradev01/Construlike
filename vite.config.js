@@ -35,7 +35,13 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp,woff,woff2}'],
-        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5 MB (aumentado de 2 MB padrão)
+        globIgnores: [
+          '**/Mylike/Foto aerea mylike.png',
+          '**/Mylike/Plantas/Planta 27,36.png',
+          '**/Mylike/Plantas/Planta 37,01a.png',
+          '**/Mylike/Plantas/Planta 37,01b.png'
+        ],
+        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // 10 MB
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/construlike\.com\.br\/.*/i,
