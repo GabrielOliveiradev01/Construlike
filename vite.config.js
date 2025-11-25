@@ -36,7 +36,8 @@ export default defineConfig({
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp,woff,woff2}'],
         globIgnores: [
-          '**/Mylike/**'
+          '**/Mylike/**',
+          '**/sobre-nos.svg'
         ],
         maximumFileSizeToCacheInBytes: 2 * 1024 * 1024, // 2 MB (padrão)
         runtimeCaching: [
