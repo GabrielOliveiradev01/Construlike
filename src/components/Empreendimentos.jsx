@@ -25,13 +25,6 @@ const Empreendimentos = () => {
 
   const emObras = [
     {
-      nome: 'MY LIKE Campo Limpo',
-      cidade: 'São Paulo',
-      imagem: '/Mylike/torre-mylike.png',
-      descricao: '2 Dorms.',
-      status: 'Futuro Lançamento'
-    },
-    {
       nome: 'Idea Home Resort',
       cidade: 'São Paulo',
       imagem: 'https://construlike.com.br/wp-content/uploads/2024/09/MSH_Itaquera_Fachada_Diurna_HR.jpg',
@@ -51,6 +44,16 @@ const Empreendimentos = () => {
       imagem: 'https://construlike.com.br/wp-content/uploads/2024/10/Prohidro_Joao_Dias_Fachada_HR.jpg',
       descricao: '2 Dorms. 34m² e 43 m²',
       status: 'Em Obras'
+    }
+  ]
+
+  const futuroLancamento = [
+    {
+      nome: 'MY LIKE Campo Limpo',
+      cidade: 'São Paulo',
+      imagem: '/Mylike/torre-mylike.png',
+      descricao: '2 Dorms.',
+      status: 'Futuro Lançamento'
     },
     {
       nome: 'Av. Itavuvu',
@@ -190,18 +193,51 @@ const Empreendimentos = () => {
             <div className="mylike-cta-logo">
               <img src="/logo-mylike.png" alt="My Like Logo" />
             </div>
-            <div className="mylike-cta-text">
-              <h2 className="mylike-cta-title">MY LIKE</h2>
-              <p className="mylike-cta-subtitle">Campo Limpo - São Paulo</p>
-              <p className="mylike-cta-description">
-                Descubra o novo conceito de morar. Um empreendimento que combina conforto, modernidade e qualidade de vida.
-              </p>
-            </div>
             <Link to="/mylike-perspectiva" className="mylike-cta-button">
-              Ver Perspectivas
+              Saiba Mais
             </Link>
           </div>
         </div>
+
+        {/* Futuro Lançamento */}
+        <section className="empreendimentos-section">
+          <h2 className="section-subtitle">Futuro Lançamento</h2>
+          <div className="empreendimentos-grid">
+            {futuroLancamento.map((empreendimento, index) => (
+              <div key={index} className="empreendimento-card">
+                <div className="empreendimento-image">
+                  {empreendimento.imagem ? (
+                    <img src={empreendimento.imagem} alt={empreendimento.nome} />
+                  ) : (
+                    <div className="empreendimento-placeholder">
+                      <span>{empreendimento.nome}</span>
+                    </div>
+                  )}
+                  <div className="empreendimento-badge">{empreendimento.status}</div>
+                </div>
+                <div className="empreendimento-info">
+                  <div className="empreendimento-cidade">{empreendimento.cidade}</div>
+                  <h3>{empreendimento.nome}</h3>
+                  {empreendimento.descricao && <p>{empreendimento.descricao}</p>}
+                  {empreendimentosComBotao.includes(empreendimento.nome) && (
+                    empreendimento.nome === 'MY LIKE Campo Limpo' ? (
+                      <Link to="/mylike-perspectiva" className="empreendimento-btn">
+                        Saiba Mais
+                      </Link>
+                    ) : (
+                      <Link 
+                        to={`/empreendimentos/${nomeParaSlug[empreendimento.nome]}`} 
+                        className="empreendimento-btn"
+                      >
+                        Saiba Mais
+                      </Link>
+                    )
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* Em Obras */}
         <section className="empreendimentos-section">
@@ -226,7 +262,7 @@ const Empreendimentos = () => {
                   {empreendimentosComBotao.includes(empreendimento.nome) && (
                     empreendimento.nome === 'MY LIKE Campo Limpo' ? (
                       <Link to="/mylike-perspectiva" className="empreendimento-btn">
-                        Ver Perspectivas
+                        Saiba Mais
                       </Link>
                     ) : (
                       <Link 

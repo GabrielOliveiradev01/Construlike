@@ -8,6 +8,9 @@ const SobreNos = () => {
         {/* Hero Section */}
         <section className="hero-section">
           <div className="hero-content">
+            <div className="construlike-logo-container">
+              <img src="/Logocontruliketransparente.png" alt="Construlike Logo" className="construlike-logo" />
+            </div>
             <h1 className="hero-title">A marca de quem pensa no futuro</h1>
           </div>
         </section>
@@ -17,8 +20,7 @@ const SobreNos = () => {
           <div className="section-wrapper">
             <div className="section-header">
               <h2 className="section-title">Quem Somos</h2>
-              <h3 className="section-subtitle">Sobre nós</h3>
-            </div>
+              </div>
             <div className="section-text">
               <p>
                 A <strong>Construlike</strong> é a mais nova incorporadora do Grupo Prohidro, trazendo consigo a solidez e a expertise de mais de <strong>35 anos</strong> de atuação no mercado da construção civil. Nossa missão é revolucionar o mercado imobiliário com inovação, qualidade e um compromisso inabalável com a satisfação dos nossos clientes.

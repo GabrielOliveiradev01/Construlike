@@ -81,42 +81,42 @@ const MyLikePerspectiva = () => {
       'Bicicletário para incentivo ao transporte alternativo'
     ],
     plantas: [
-      { nome: '23,36 m² - 1 dorm varanda', imagem: '' },
-      { nome: '37,01 m² - 2 dorms varanda e vaga', imagem: '' },
-      { nome: '37,01 m² - 2 dorms varanda vaga', imagem: '' }
+      { nome: '27,36 m² - 1 dorm varanda', imagem: '/Mylike/Plantas/Planta 27,36.png' },
+      { nome: '37,01 m² - 2 dorms varanda e vaga', imagem: '/Mylike/Plantas/Planta 37,01a.png' },
+      { nome: '37,01 m² - 2 dorms varanda vaga', imagem: '/Mylike/Plantas/Planta 37,01b.png' }
     ],
-    implantacao: '',
+    implantacao: '/Mylike/imagem-de-implantacao.png',
     amenidades: [
-      'Portaria',
-      'Lobby',
-      'Piscina adulto',
-      'Piscina infantil',
-      'Bangalô',
-      'Sala fitness',
-      'Academia',
-      'Cross training',
-      'Beach arena',
-      'Quadra recreativa',
-      'Salão de festas',
-      'Gourmet',
-      'Churrasqueira',
-      'Coworking',
-      'Sala de reunião*',
-      'Playground',
-      'Brinquedoteca',
-      'Espaço podcast*',
-      'Salão de jogos/ teens',
-      'Sala de cinema*',
-      'Espaço beauty*',
-      'Espaço zen*',
-      'Espaço barbearia*',
-      'Espaço delivery',
-      'Mini market',
-      'Lavanderia*',
-      'Pet place',
-      'Mirante*',
-      'Ladder',
-      'Boulevard'
+      { numero: 1, nome: 'Portaria' },
+      { numero: 2, nome: 'Lobby' },
+      { numero: 3, nome: 'Piscina adulto' },
+      { numero: 4, nome: 'Piscina infantil' },
+      { numero: 5, nome: 'Bangalô' },
+      { numero: 6, nome: 'Sala fitness' },
+      { numero: 7, nome: 'Academia' },
+      { numero: 8, nome: 'Cross training' },
+      { numero: 9, nome: 'Beach arena' },
+      { numero: 10, nome: 'Quadra recreativa' },
+      { numero: 11, nome: 'Salão de festas' },
+      { numero: 12, nome: 'Gourmet' },
+      { numero: 13, nome: 'Churrasqueira' },
+      { numero: 14, nome: 'Coworking' },
+      { numero: 15, nome: 'Sala de reunião*' },
+      { numero: 16, nome: 'Playground' },
+      { numero: 17, nome: 'Brinquedoteca' },
+      { numero: 18, nome: 'Espaço podcast*' },
+      { numero: 19, nome: 'Salão de jogos/ teens' },
+      { numero: 20, nome: 'Sala de cinema*' },
+      { numero: 21, nome: 'Espaço beauty*' },
+      { numero: 22, nome: 'Espaço zen*' },
+      { numero: 23, nome: 'Espaço barbearia*' },
+      { numero: 24, nome: 'Espaço delivery' },
+      { numero: 25, nome: 'Mini market' },
+      { numero: 26, nome: 'Lavanderia*' },
+      { numero: 27, nome: 'Pet place' },
+      { numero: 28, nome: 'Mirante*' },
+      { numero: 29, nome: 'Ladder' },
+      { numero: 30, nome: 'Boulevard' }
     ],
     descricaoPlantas: 'Conheça os diferentes tipos de apartamentos disponíveis no MY LIKE Campo Limpo. Cada planta foi cuidadosamente projetada para oferecer o máximo de conforto e funcionalidade.',
     descricaoImplantacao: 'O MY LIKE Campo Limpo oferece uma ampla gama de amenidades e áreas comuns pensadas para proporcionar bem-estar, lazer e praticidade aos moradores. Um verdadeiro conceito de vida moderna e completa.'
@@ -124,6 +124,8 @@ const MyLikePerspectiva = () => {
 
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
   const [imagemSelecionada, setImagemSelecionada] = useState(null)
+  const [implantacaoAberta, setImplantacaoAberta] = useState(false)
+  const [plantaSelecionada, setPlantaSelecionada] = useState(null)
   const imagens = empreendimento.galeria.perspectivas
 
   // Scroll para o topo quando o componente for montado
@@ -193,20 +195,13 @@ const MyLikePerspectiva = () => {
         </Link>
       </div>
 
-      {/* Hero Section com Vídeo */}
-      <div className="hero-section hero-section-video">
-        <video
-          className="hero-video"
-          autoPlay
-          loop
-          muted
-          playsInline
-        >
-          <source
-            src="https://66670533221b2cee3d4a1fa219156d7b.cdn.bubble.io/f1763558662691x199743315729881120/189801d4-54aa-464d-89f2-3fb32b388723.mp4"
-            type="video/mp4"
-          />
-        </video>
+      {/* Hero Section com Imagem */}
+      <div className="hero-section hero-section-image">
+        <img 
+          src={empreendimento.imagemPrincipal} 
+          alt={empreendimento.nome}
+          className="hero-image"
+        />
         <div className="hero-overlay">
           <div className="hero-content">
             <div className="hero-badge">{empreendimento.status}</div>
@@ -219,6 +214,22 @@ const MyLikePerspectiva = () => {
           </div>
         </div>
       </div>
+
+      {/* Vídeo abaixo do texto */}
+      <section className="video-section">
+        <div className="section-wrapper">
+          <video
+            className="content-video"
+            controls
+            playsInline
+          >
+            <source
+              src="https://66670533221b2cee3d4a1fa219156d7b.cdn.bubble.io/f1763558662691x199743315729881120/189801d4-54aa-464d-89f2-3fb32b388723.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+      </section>
 
       {/* Galeria de Imagens com Slider Rotativo */}
       {imagens.length > 0 && (
@@ -293,6 +304,78 @@ const MyLikePerspectiva = () => {
           </div>
         </section>
       )}
+
+      {/* Galeria de Plantas */}
+      {empreendimento.plantas && empreendimento.plantas.length > 0 && (
+        <section className="plantas-section">
+          <div className="section-wrapper">
+            <h2 className="section-title">Galeria de Plantas</h2>
+            <p className="section-subtitle">Todo o conforto que seu apê precisa ter.</p>
+            {empreendimento.descricaoPlantas && (
+              <p className="section-description">{empreendimento.descricaoPlantas}</p>
+            )}
+            <div className="plantas-grid">
+              {empreendimento.plantas.map((planta, index) => (
+                <div key={index} className="planta-item">
+                  {planta.imagem ? (
+                    <img 
+                      src={planta.imagem} 
+                      alt={planta.nome}
+                      onClick={() => setPlantaSelecionada(planta)}
+                      style={{ cursor: 'pointer' }}
+                    />
+                  ) : (
+                    <div className="planta-placeholder">
+                      <span>{planta.nome}</span>
+                    </div>
+                  )}
+                  <p className="planta-nome">{planta.nome}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Implantação */}
+      <section className="implantacao-section">
+        <div className="section-wrapper">
+          <h2 className="section-title">Implantação e Amenidades</h2>
+          {empreendimento.descricaoImplantacao && (
+            <p className="section-description">{empreendimento.descricaoImplantacao}</p>
+          )}
+          <div className="implantacao-content">
+            {empreendimento.implantacao ? (
+              <img 
+                src={empreendimento.implantacao} 
+                alt="Implantação" 
+                onClick={() => setImplantacaoAberta(true)}
+                style={{ cursor: 'pointer' }}
+              />
+            ) : (
+              <div className="implantacao-placeholder">
+                <span>Imagem de Implantação</span>
+              </div>
+            )}
+          </div>
+          
+          {/* Lista de Amenidades */}
+          {empreendimento.amenidades && empreendimento.amenidades.length > 0 && (
+            <div className="amenidades-container">
+              <h3 className="amenidades-title">Amenidades Disponíveis</h3>
+              <div className="amenidades-grid">
+                {empreendimento.amenidades.map((amenidade, index) => (
+                  <div key={index} className="amenidade-item">
+                    <div className="amenidade-numero">{amenidade.numero}</div>
+                    <span>{amenidade.nome}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="amenidades-note">* Amenidades opcionais ou sujeitas a alterações</p>
+            </div>
+          )}
+        </div>
+      </section>
 
       {/* Informações do Empreendimento */}
       <section className="informacoes-section">
@@ -382,73 +465,22 @@ const MyLikePerspectiva = () => {
         </section>
       )}
 
-      {/* Galeria de Plantas */}
-      {empreendimento.plantas && empreendimento.plantas.length > 0 && (
-        <section className="plantas-section">
-          <div className="section-wrapper">
-            <h2 className="section-title">Galeria de Plantas</h2>
-            <p className="section-subtitle">Todo o conforto que seu apê precisa ter.</p>
-            {empreendimento.descricaoPlantas && (
-              <p className="section-description">{empreendimento.descricaoPlantas}</p>
-            )}
-            <div className="plantas-grid">
-              {empreendimento.plantas.map((planta, index) => (
-                <div key={index} className="planta-item">
-                  {planta.imagem ? (
-                    <img src={planta.imagem} alt={planta.nome} />
-                  ) : (
-                    <div className="planta-placeholder">
-                      <span>{planta.nome}</span>
-                    </div>
-                  )}
-                  <p className="planta-nome">{planta.nome}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Implantação */}
-      <section className="implantacao-section">
-        <div className="section-wrapper">
-          <h2 className="section-title">Implantação e Amenidades</h2>
-          {empreendimento.descricaoImplantacao && (
-            <p className="section-description">{empreendimento.descricaoImplantacao}</p>
-          )}
-          <div className="implantacao-content">
-            {empreendimento.implantacao ? (
-              <img src={empreendimento.implantacao} alt="Implantação" />
-            ) : (
-              <div className="implantacao-placeholder">
-                <span>Imagem de Implantação</span>
-              </div>
-            )}
-          </div>
-          
-          {/* Lista de Amenidades */}
-          {empreendimento.amenidades && empreendimento.amenidades.length > 0 && (
-            <div className="amenidades-container">
-              <h3 className="amenidades-title">Amenidades Disponíveis</h3>
-              <div className="amenidades-grid">
-                {empreendimento.amenidades.map((amenidade, index) => (
-                  <div key={index} className="amenidade-item">
-                    <div className="amenidade-icon">✓</div>
-                    <span>{amenidade}</span>
-                  </div>
-                ))}
-              </div>
-              <p className="amenidades-note">* Amenidades opcionais ou sujeitas a alterações</p>
-            </div>
-          )}
-        </div>
-      </section>
-
       {/* Endereço */}
       <section className="endereco-section">
         <div className="section-wrapper">
           <h2 className="section-title">Endereço do empreendimento</h2>
           <p className="endereco-text">{empreendimento.endereco}</p>
+        </div>
+      </section>
+
+      {/* Foto Aérea após Endereço */}
+      <section className="imagem-grande-section">
+        <div className="section-wrapper">
+          <img 
+            src="/Mylike/Foto aerea mylike.png" 
+            alt="Foto aérea do empreendimento"
+            className="imagem-grande"
+          />
         </div>
       </section>
 
@@ -458,6 +490,27 @@ const MyLikePerspectiva = () => {
           <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={() => setImagemSelecionada(null)}>×</button>
             <img src={imagemSelecionada} alt="Imagem ampliada" />
+          </div>
+        </div>
+      )}
+
+      {/* Modal de Implantação */}
+      {implantacaoAberta && empreendimento.implantacao && (
+        <div className="image-modal" onClick={() => setImplantacaoAberta(false)}>
+          <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setImplantacaoAberta(false)}>×</button>
+            <img src={empreendimento.implantacao} alt="Implantação" />
+          </div>
+        </div>
+      )}
+
+      {/* Modal de Planta */}
+      {plantaSelecionada && (
+        <div className="planta-modal" onClick={() => setPlantaSelecionada(null)}>
+          <div className="planta-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close planta-modal-close" onClick={() => setPlantaSelecionada(null)}>×</button>
+            <img src={plantaSelecionada.imagem} alt={plantaSelecionada.nome} />
+            <p className="planta-modal-nome">{plantaSelecionada.nome}</p>
           </div>
         </div>
       )}

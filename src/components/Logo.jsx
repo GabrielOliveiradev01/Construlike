@@ -4,7 +4,7 @@ import './Logo.css'
 const Logo = () => {
   return (
     <Link to="/" className="logo-container">
-      <img src="/construlike.png" alt="Construlike" className="logo" />
+      <img src="/Logocontruliketransparente.png" alt="Construlike" className="logo" />
     </Link>
   )
 }
