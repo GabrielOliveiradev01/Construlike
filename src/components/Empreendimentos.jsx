@@ -53,7 +53,7 @@ const Empreendimentos = () => {
       cidade: 'São Paulo',
       imagem: '/Mylike/torre-mylike.png',
       descricao: '2 Dorms.',
-      status: 'Futuro Lançamento'
+      status: 'Lançamento'
     },
     {
       nome: 'Av. Itavuvu',

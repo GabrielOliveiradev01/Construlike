@@ -7,7 +7,7 @@ const MyLikePerspectiva = () => {
   const empreendimento = {
     nome: 'MY LIKE Campo Limpo',
     cidade: 'São Paulo',
-    status: 'Futuro Lançamento',
+    status: 'Lançamento',
     descricao: '1 ou 2 dorms. 27,36 m² a 37,01 m²',
     slogan: 'Descubra o novo conceito de morar. Um empreendimento que combina conforto, modernidade e qualidade de vida.',
     endereco: 'Avenida Professora Nina Stocco, 1.176 - Campo Limpo - São Paulo/SP',
@@ -205,7 +205,9 @@ const MyLikePerspectiva = () => {
         <div className="hero-overlay">
           <div className="hero-content">
             <div className="hero-badge">{empreendimento.status}</div>
-            <h1 className="hero-title">{empreendimento.nome}</h1>
+            <div className="hero-logo-container">
+              <img src="/logo-mylike.png" alt="MY LIKE" className="hero-mylike-logo" />
+            </div>
             <p className="hero-cidade">{empreendimento.cidade}</p>
             <p className="hero-descricao">{empreendimento.descricao}</p>
             {empreendimento.slogan && (
@@ -362,7 +364,7 @@ const MyLikePerspectiva = () => {
           {/* Lista de Amenidades */}
           {empreendimento.amenidades && empreendimento.amenidades.length > 0 && (
             <div className="amenidades-container">
-              <h3 className="amenidades-title">Amenidades Disponíveis</h3>
+              <h3 className="amenidades-title">Lazer Disponíveis</h3>
               <div className="amenidades-grid">
                 {empreendimento.amenidades.map((amenidade, index) => (
                   <div key={index} className="amenidade-item">
@@ -371,7 +373,16 @@ const MyLikePerspectiva = () => {
                   </div>
                 ))}
               </div>
-              <p className="amenidades-note">* Amenidades opcionais ou sujeitas a alterações</p>
+              <p className="amenidades-note">* Lazer opcionais sujeitas a alterações</p>
+              
+              {/* Equipado e Decorados */}
+              <div className="equipado-decorados-card">
+                <img 
+                  src="/Mylike/equipadasedecoradas.png" 
+                  alt="Equipado e Decorados"
+                  className="equipado-decorados-image"
+                />
+              </div>
             </div>
           )}
         </div>
