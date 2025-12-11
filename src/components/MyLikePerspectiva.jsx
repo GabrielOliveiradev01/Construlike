@@ -188,6 +188,7 @@ const MyLikePerspectiva = () => {
     // Ajustes de nomes
     name = name.replace(/Cross Fit/g, 'Cross Training')
     name = name.replace(/^Play$/g, 'Playground')
+    name = name.replace(/Solarium/g, 'Bangalô')
     
     return name
   }
