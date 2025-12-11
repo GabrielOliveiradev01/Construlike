@@ -10,11 +10,11 @@ const MyLikePerspectiva = () => {
     status: 'Lançamento',
     descricao: '1 ou 2 dorms. 27,36 m² a 37,01 m²',
     slogan: 'Descubra o novo conceito de morar. Um empreendimento que combina conforto, modernidade e qualidade de vida.',
-    endereco: 'Avenida Professora Nina Stocco, 1.176 - Campo Limpo - São Paulo/SP',
+    endereco: 'Rua Professora Nina Stocco, 1.176 - Campo Limpo - São Paulo/SP',
     imagemPrincipal: '/Mylike/torre-mylike.png',
     informacoes: {
       incorporacao: 'Construlike Construtora e Incorporadora Ltda.',
-      projetoArquitetonico: 'Rubio Longo',
+      projetoArquitetonico: 'Rubio Luongo',
       quantidadeApartamentos: 322,
       metragens: '27,36 m² / 36,65 m² / 36,97 m² / 37,01 m²',
       tiposUnidades: '1 ou 2 dorms',
@@ -178,12 +178,18 @@ const MyLikePerspectiva = () => {
   // Nomes amigáveis para as imagens
   const getImageName = (imagePath) => {
     const filename = imagePath.split('/').pop().replace('.jpg', '').replace('_HR', '')
-    return filename
+    let name = filename
       .replace(/Prohidro_Morumbi_/g, '')
       .replace(/_/g, ' ')
       .split(' ')
       .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
       .join(' ')
+    
+    // Ajustes de nomes
+    name = name.replace(/Cross Fit/g, 'Cross Training')
+    name = name.replace(/^Play$/g, 'Playground')
+    
+    return name
   }
 
   return (
