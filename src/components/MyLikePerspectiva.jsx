@@ -11,7 +11,7 @@ const MyLikePerspectiva = () => {
     descricao: '1 ou 2 dorms. 27,36 m² a 37,01 m²',
     slogan: 'Descubra o novo conceito de morar. Um empreendimento que combina conforto, modernidade e qualidade de vida.',
     endereco: 'Rua Professora Nina Stocco, 1.176 - Campo Limpo - São Paulo/SP',
-    imagemPrincipal: '/Mylike/torre-mylike.png',
+    imagemPrincipal: '/Mylike/torre Mylike.png',
     informacoes: {
       incorporacao: 'Construlike Construtora e Incorporadora Ltda.',
       projetoArquitetonico: 'Rubio Luongo',

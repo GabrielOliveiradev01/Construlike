@@ -699,21 +699,20 @@
   border-radius: 20px;
   padding: 0;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1;
   margin: 40px auto 0;
-  display: inline-block;
+  display: block;
   overflow: hidden;
 }
 
 .equipado-decorados-image {
-  width: 200px;
-  max-width: 200px;
-  height: 200px;
-  max-height: 200px;
+  width: 100%;
+  height: 100%;
   display: block;
   border-radius: 20px;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 /* Endereço */
@@ -960,5 +959,6 @@
   .equipado-decorados-card {
     margin: 30px auto 0;
     border-radius: 15px;
+    max-width: 90%;
   }
 }

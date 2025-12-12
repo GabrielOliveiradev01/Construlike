@@ -47,14 +47,17 @@ const Empreendimentos = () => {
     }
   ]
 
-  const futuroLancamento = [
+  const lancamento = [
     {
       nome: 'MY LIKE Campo Limpo',
       cidade: 'São Paulo',
-      imagem: '/Mylike/torre-mylike.png',
+      imagem: '/Mylike/torre Mylike.png',
       descricao: '2 Dorms.',
       status: 'Lançamento'
-    },
+    }
+  ]
+
+  const futuroLancamento = [
     {
       nome: 'Av. Itavuvu',
       cidade: 'Sorocaba',
@@ -198,6 +201,46 @@ const Empreendimentos = () => {
             </Link>
           </div>
         </div>
+
+        {/* Lançamento */}
+        <section className="empreendimentos-section">
+          <h2 className="section-subtitle">Lançamento</h2>
+          <div className="empreendimentos-grid">
+            {lancamento.map((empreendimento, index) => (
+              <div key={index} className="empreendimento-card">
+                <div className="empreendimento-image">
+                  {empreendimento.imagem ? (
+                    <img src={empreendimento.imagem} alt={empreendimento.nome} />
+                  ) : (
+                    <div className="empreendimento-placeholder">
+                      <span>{empreendimento.nome}</span>
+                    </div>
+                  )}
+                  <div className="empreendimento-badge">{empreendimento.status}</div>
+                </div>
+                <div className="empreendimento-info">
+                  <div className="empreendimento-cidade">{empreendimento.cidade}</div>
+                  <h3>{empreendimento.nome}</h3>
+                  {empreendimento.descricao && <p>{empreendimento.descricao}</p>}
+                  {empreendimentosComBotao.includes(empreendimento.nome) && (
+                    empreendimento.nome === 'MY LIKE Campo Limpo' ? (
+                      <Link to="/mylike-perspectiva" className="empreendimento-btn">
+                        Saiba Mais
+                      </Link>
+                    ) : (
+                      <Link 
+                        to={`/empreendimentos/${nomeParaSlug[empreendimento.nome]}`} 
+                        className="empreendimento-btn"
+                      >
+                        Saiba Mais
+                      </Link>
+                    )
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* Futuro Lançamento */}
         <section className="empreendimentos-section">
