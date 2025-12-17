@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import './EmpreendimentoDetalhes.css'
 
@@ -75,22 +75,104 @@ const EmpreendimentoDetalhes = () => {
       descricao: '2 e 3 Dorms. c/ Suíte',
       slogan: 'Perto de tudo, ideal para você. Ares tranquilos e funcionalidade admirável, essa é a cidade de Sorocaba. Entre áreas verdes, segurança e renomadas indústrias, há qualidade de vida, diversão e alegria. Você no centro de tudo, próximos a importantes eixos comerciais, escolas renomadas e mobilidade acessível. É mais que uma Mirage, é um novo conceito de viver bem.',
       endereco: 'Av. São Paulo, 2.250 - Jardim Gonçalves, Sorocaba - SP',
-      imagemPrincipal: 'https://construlike.com.br/wp-content/uploads/2024/09/Prohidro_Sorocaba_Fachada_Conceitual_HR.jpg',
+      imagemPrincipal: '/MirageSaoPaulo/implantacao.png',
       galeria: {
         fachadas: [
-          'https://construlike.com.br/wp-content/uploads/2024/09/Prohidro_Sorocaba_Fachada_Conceitual_HR.jpg'
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Fachada_Conceitual_R03.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Fachada_Diurna_HR.JPG',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Fachada_Lojas_HR.jpg'
         ],
-        areasComuns: [],
-        apartamento: []
+        areasComuns: [
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Acesso_R02.JPG',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Aqua_Play_HR.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Beach_Sports_HR.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Bicicletario_HR.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Brinquedoteca_HR.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Churrasqueira_HR.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Cine_Open_Air_HR.JPG',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Cinema_HR.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Coworking_HR.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Cross_Fit_R02.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Delivery_HR.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Festas_HR.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Fitness_R04.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Ginastica_HR.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Hall_R02.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Jogos_Gamer_HR.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Jogos_HR.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Ladder_HR.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Lavanderia_HR.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Pet_Place_HR.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Piscina_Borda_HR.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Piscina_Deck_HR.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Piscina_Voo_HR.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Play_Aventura_HR.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Play_Baby_HR.JPG',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Praca_Central_HR.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Praca_do_Fogo_HR.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Praca_do_Luau_HR.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Pub_Jogos_HR.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Quadra_HR.JPG',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_StudioMakeup_HR.jpg'
+        ],
+        apartamento: [
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Living_35m2_HR.jpg',
+          '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Living_60m2_HR.jpg'
+        ]
       },
       plantas: [
-        { nome: '1 Suíte Flex', imagem: '' },
-        { nome: '2 Dorms', imagem: '' },
-        { nome: '2 Dorms', imagem: '' },
-        { nome: '2 Dorms', imagem: '' },
-        { nome: '3 Dorms', imagem: '' }
+        { nome: 'Tipo A Garden', imagem: '/MirageSaoPaulo/Plantas/Prohidro_Sorocaba_Tipo_A_Garden_HR.jpg' },
+        { nome: 'Tipo A Garden (Alternativa)', imagem: '/MirageSaoPaulo/Plantas/Prohidro_Sorocaba_Tipo_A_Garden_HR_1.JPG' },
+        { nome: 'Tipo A', imagem: '/MirageSaoPaulo/Plantas/Prohidro_Sorocaba_Tipo_A_HR.JPG' },
+        { nome: 'Tipo B', imagem: '/MirageSaoPaulo/Plantas/Prohidro_Sorocaba_Tipo_B_HR.JPG' },
+        { nome: 'Tipo C', imagem: '/MirageSaoPaulo/Plantas/Prohidro_Sorocaba_Tipo_C_HR.jpg' },
+        { nome: 'Tipo C Ampliado', imagem: '/MirageSaoPaulo/Plantas/Prohidro_Sorocaba_Tipo_C_Ampliado_HR.JPG' },
+        { nome: 'Tipo D', imagem: '/MirageSaoPaulo/Plantas/Prohidro_Sorocaba_Tipo_D_HR.JPG' }
       ],
-      implantacao: '',
+      implantacao: '/MirageSaoPaulo/implantacao.png',
+      descricaoImplantacao: 'O Mirage São Paulo oferece uma ampla gama de amenidades e áreas comuns pensadas para proporcionar bem-estar, lazer e praticidade aos moradores. Um verdadeiro conceito de vida moderna e completa.',
+      amenidades: [
+        { numero: 1, nome: 'Portaria' },
+        { numero: 2, nome: 'Delivery' },
+        { numero: 3, nome: 'Piscina com Borda Infinita' },
+        { numero: 4, nome: 'Deck Molhado' },
+        { numero: 5, nome: 'Churrasqueira a Carvão' },
+        { numero: 6, nome: 'Horta' },
+        { numero: 7, nome: 'Coworking' },
+        { numero: 8, nome: 'Lavanderia' },
+        { numero: 9, nome: 'Hall A' },
+        { numero: 10, nome: 'Salão de Festas' },
+        { numero: 11, nome: 'Brinquedoteca' },
+        { numero: 12, nome: 'Play Baby' },
+        { numero: 13, nome: 'Acquaplay' },
+        { numero: 14, nome: 'Churrasqueira Parrilla' },
+        { numero: 15, nome: 'Praça do Fogo' },
+        { numero: 16, nome: 'Youtuber e Podcast' },
+        { numero: 17, nome: 'Studio Make Up' },
+        { numero: 18, nome: 'Hall B' },
+        { numero: 19, nome: 'Salão de Jogos' },
+        { numero: 20, nome: 'Jogos Gamer' },
+        { numero: 21, nome: 'Piscina com SPA' },
+        { numero: 22, nome: 'Piscina com Biribol' },
+        { numero: 23, nome: 'Churrasqueiras a Gás' },
+        { numero: 24, nome: 'Play Aventura' },
+        { numero: 25, nome: 'Espaço Boteco' },
+        { numero: 26, nome: 'Mini Market' },
+        { numero: 27, nome: 'Hall C' },
+        { numero: 28, nome: 'Fitness' },
+        { numero: 29, nome: 'Ginástica / Yoga' },
+        { numero: 30, nome: 'Cinema' },
+        { numero: 31, nome: 'Praça do Luau' },
+        { numero: 32, nome: 'Crossfit' },
+        { numero: 33, nome: 'Quadra Recreativa' },
+        { numero: 34, nome: 'Beach Tennis' },
+        { numero: 35, nome: 'Cine Open Air' },
+        { numero: 36, nome: 'Pet Place' },
+        { numero: 37, nome: 'Entrada de veículos torre A' },
+        { numero: 38, nome: 'Entrada de veículos torre B' },
+        { numero: 39, nome: 'Entrada de veículos torre C' },
+        { numero: 'A', nome: 'Centro Comercial' }
+      ],
       diferenciais: [
         'Acessibilidade para todas as áreas comuns',
         'Iluminação de LED nas áreas de circulação de uso comum',
@@ -193,6 +275,92 @@ const EmpreendimentoDetalhes = () => {
   const empreendimento = empreendimentos[slug]
   const [categoriaGaleria, setCategoriaGaleria] = useState('fachadas')
   const [imagemSelecionada, setImagemSelecionada] = useState(null)
+  const [plantaSelecionada, setPlantaSelecionada] = useState(null)
+  const [implantacaoAberta, setImplantacaoAberta] = useState(false)
+  
+  // Estados para slider de perspectivas (Mirage São Paulo)
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
+  
+  // Obter todas as perspectivas do Mirage São Paulo
+  const getPerspectivasMirageSaoPaulo = () => {
+    if (slug === 'mirage-sao-paulo' && empreendimento) {
+      const perspectivas = [
+        ...(empreendimento.galeria?.fachadas || []),
+        ...(empreendimento.galeria?.areasComuns || []),
+        ...(empreendimento.galeria?.apartamento || [])
+      ]
+      return perspectivas
+    }
+    return []
+  }
+  
+  const perspectivas = getPerspectivasMirageSaoPaulo()
+
+  // Auto-play do slider rotativo para perspectivas
+  useEffect(() => {
+    if (perspectivas.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentSlideIndex((prevIndex) =>
+          prevIndex === perspectivas.length - 1 ? 0 : prevIndex + 1
+        )
+      }, 4000) // Muda a cada 4 segundos
+      return () => clearInterval(interval)
+    }
+  }, [perspectivas.length])
+
+  const goToSlide = (index) => {
+    setCurrentSlideIndex(index)
+  }
+
+  const goToPrevious = useCallback(() => {
+    setCurrentSlideIndex((prevIndex) =>
+      prevIndex === 0 ? perspectivas.length - 1 : prevIndex - 1
+    )
+  }, [perspectivas.length])
+
+  const goToNext = useCallback(() => {
+    setCurrentSlideIndex((prevIndex) =>
+      prevIndex === perspectivas.length - 1 ? 0 : prevIndex + 1
+    )
+  }, [perspectivas.length])
+
+  // Navegação com teclado para perspectivas
+  useEffect(() => {
+    if (perspectivas.length === 0) return
+    
+    const handleKeyPress = (e) => {
+      if (e.key === 'ArrowLeft') {
+        goToPrevious()
+      } else if (e.key === 'ArrowRight') {
+        goToNext()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyPress)
+    return () => window.removeEventListener('keydown', handleKeyPress)
+  }, [goToPrevious, goToNext, perspectivas.length])
+
+  // Nomes amigáveis para as imagens do Mirage São Paulo
+  const getImageNameMirage = (imagePath) => {
+    const filename = imagePath.split('/').pop().replace(/\.(jpg|jpeg|JPG)$/i, '').replace('_HR', '').replace('_R02', '').replace('_R03', '').replace('_R04', '')
+    let name = filename
+      .replace(/Prohidro_Sorocaba_/g, '')
+      .replace(/_/g, ' ')
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(' ')
+    
+    // Ajustes de nomes
+    name = name.replace(/Cross Fit/g, 'Cross Training')
+    name = name.replace(/Play Aventura/g, 'Playground Aventura')
+    name = name.replace(/Play Baby/g, 'Playground Baby')
+    name = name.replace(/Living 35m2/g, 'Living 35m²')
+    name = name.replace(/Living 60m2/g, 'Living 60m²')
+    name = name.replace(/Praca/g, 'Praça')
+    name = name.replace(/Cine Open Air/g, 'Cinema ao Ar Livre')
+    
+    return name
+  }
 
   if (!empreendimento) {
     return (
@@ -231,8 +399,82 @@ const EmpreendimentoDetalhes = () => {
         </div>
       </div>
 
-      {/* Galeria de Imagens */}
-      {imagensCategoria.length > 0 && (
+      {/* Galeria de Perspectivas (Mirage São Paulo) */}
+      {slug === 'mirage-sao-paulo' && perspectivas.length > 0 && (
+        <section className="galeria-section">
+          <div className="section-wrapper">
+            <h2 className="section-title">Galeria de Perspectivas</h2>
+            
+            {/* Slider Principal */}
+            <div className="slider-container-main">
+              <div className="slider-wrapper">
+                {perspectivas.map((imagem, index) => (
+                  <div
+                    key={index}
+                    className={`slider-slide ${index === currentSlideIndex ? 'active' : ''}`}
+                    onClick={() => setImagemSelecionada(imagem)}
+                  >
+                    <img src={imagem} alt={getImageNameMirage(imagem)} />
+                    <div className="slide-overlay">
+                      <h3 className="slide-title">{getImageNameMirage(imagem)}</h3>
+                    </div>
+                  </div>
+                ))}
+                
+                {/* Botões de navegação */}
+                {perspectivas.length > 1 && (
+                  <>
+                    <button
+                      className="slider-nav prev"
+                      onClick={goToPrevious}
+                      aria-label="Imagem anterior"
+                    >
+                      ‹
+                    </button>
+                    <button
+                      className="slider-nav next"
+                      onClick={goToNext}
+                      aria-label="Próxima imagem"
+                    >
+                      ›
+                    </button>
+                  </>
+                )}
+              </div>
+            </div>
+
+            {/* Thumbnails Bar */}
+            {perspectivas.length > 1 && (
+              <div className="thumbnails-container-bar">
+                <div className="thumbnails-scroll">
+                  {perspectivas.map((imagem, index) => (
+                    <div
+                      key={index}
+                      className={`thumbnail-item ${index === currentSlideIndex ? 'active' : ''}`}
+                      onClick={() => goToSlide(index)}
+                    >
+                      <img src={imagem} alt={`Thumbnail ${index + 1}`} />
+                      <div className="thumbnail-overlay">
+                        <span>{getImageNameMirage(imagem)}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Indicador de posição */}
+            {perspectivas.length > 1 && (
+              <div className="slider-indicator">
+                <span>{currentSlideIndex + 1} / {perspectivas.length}</span>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* Galeria de Imagens (apenas para outros empreendimentos, não Mirage São Paulo) */}
+      {slug !== 'mirage-sao-paulo' && imagensCategoria.length > 0 && (
         <section className="galeria-section">
           <div className="section-wrapper">
             <h2 className="section-title">Galeria de Imagens</h2>
@@ -299,7 +541,12 @@ const EmpreendimentoDetalhes = () => {
               {empreendimento.plantas.map((planta, index) => (
                 <div key={index} className="planta-item">
                   {planta.imagem ? (
-                    <img src={planta.imagem} alt={planta.nome} />
+                    <img 
+                      src={planta.imagem} 
+                      alt={planta.nome}
+                      onClick={() => setPlantaSelecionada(planta)}
+                      style={{ cursor: 'pointer' }}
+                    />
                   ) : (
                     <div className="planta-placeholder">
                       <span>{planta.nome}</span>
@@ -317,16 +564,40 @@ const EmpreendimentoDetalhes = () => {
       {empreendimento.implantacao && (
         <section className="implantacao-section">
           <div className="section-wrapper">
-            <h2 className="section-title">Implantação</h2>
+            <h2 className="section-title">Implantação e Amenidades</h2>
+            {empreendimento.descricaoImplantacao && (
+              <p className="section-description">{empreendimento.descricaoImplantacao}</p>
+            )}
             <div className="implantacao-content">
               {empreendimento.implantacao ? (
-                <img src={empreendimento.implantacao} alt="Implantação" />
+                <img 
+                  src={empreendimento.implantacao} 
+                  alt="Implantação" 
+                  onClick={() => setImplantacaoAberta(true)}
+                  style={{ cursor: 'pointer' }}
+                />
               ) : (
                 <div className="implantacao-placeholder">
                   <span>Imagem de Implantação</span>
                 </div>
               )}
             </div>
+            
+            {/* Lista de Amenidades */}
+            {empreendimento.amenidades && empreendimento.amenidades.length > 0 && (
+              <div className="amenidades-container">
+                <h3 className="amenidades-title">Lazer Disponíveis</h3>
+                <div className="amenidades-grid">
+                  {empreendimento.amenidades.map((amenidade, index) => (
+                    <div key={index} className="amenidade-item">
+                      <div className="amenidade-numero">{amenidade.numero}</div>
+                      <span>{amenidade.nome}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="amenidades-note">* Lazer opcionais sujeitas a alterações</p>
+              </div>
+            )}
           </div>
         </section>
       )}
@@ -475,6 +746,27 @@ const EmpreendimentoDetalhes = () => {
           <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={() => setImagemSelecionada(null)}>×</button>
             <img src={imagemSelecionada} alt="Imagem ampliada" />
+          </div>
+        </div>
+      )}
+
+      {/* Modal de Planta */}
+      {plantaSelecionada && (
+        <div className="planta-modal" onClick={() => setPlantaSelecionada(null)}>
+          <div className="planta-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close planta-modal-close" onClick={() => setPlantaSelecionada(null)}>×</button>
+            <img src={plantaSelecionada.imagem} alt={plantaSelecionada.nome} />
+            <p className="planta-modal-nome">{plantaSelecionada.nome}</p>
+          </div>
+        </div>
+      )}
+
+      {/* Modal de Implantação */}
+      {implantacaoAberta && empreendimento.implantacao && (
+        <div className="image-modal" onClick={() => setImplantacaoAberta(false)}>
+          <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setImplantacaoAberta(false)}>×</button>
+            <img src={empreendimento.implantacao} alt="Implantação" />
           </div>
         </div>
       )}

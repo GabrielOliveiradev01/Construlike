@@ -26,3 +26,19 @@ dist-ssr
 # Videos (apenas da pasta src)
 src/Videos/
 
+# Arquivos grandes e PSDs (não devem ir para o git)
+*.psd
+*.PSD
+implantacaoMGSP.png
+mirage são paulo/
+implantação mirage em são paulo.psd
+
+# Arquivos muito grandes (>10MB) - devem ser otimizados antes
+**/*_HR.jpg
+**/*_HR.JPG
+**/*_HR.png
+
+*.psd
+*_HR.jpg
+*_HR.JPG
+implantacaoMGSP.png

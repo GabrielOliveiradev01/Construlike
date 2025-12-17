@@ -1,0 +1,23 @@
+INSTRUÇÕES PARA ADICIONAR A IMAGEM DE IMPLANTAÇÃO
+==================================================
+
+1. Abra o arquivo PSD no Photoshop:
+   📁 "mirage são paulo/implantacao mirage em são paulo.psd"
+
+2. Exporte como JPG:
+   - File > Export > Export As...
+   - Formato: JPEG
+   - Qualidade: 90%
+   - Redimensione para largura máxima de 1920px (mantendo proporção)
+
+3. Salve o arquivo como:
+   📁 "public/MirageSaoPaulo/implantacao.jpg"
+
+4. (Opcional) Otimize a imagem:
+   Execute: node optimize-implantacao.cjs
+   
+   Isso irá otimizar a imagem automaticamente usando sharp.
+
+Após seguir estes passos, a imagem de implantação aparecerá automaticamente
+na página do Mirage São Paulo.
+

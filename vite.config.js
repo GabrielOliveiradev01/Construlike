@@ -37,9 +37,10 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp,woff,woff2}'],
         globIgnores: [
           '**/Mylike/**',
+          '**/MirageSaoPaulo/**',
           '**/sobre-nos.svg'
         ],
-        maximumFileSizeToCacheInBytes: 2 * 1024 * 1024, // 2 MB (padrão)
+        maximumFileSizeToCacheInBytes: 100 * 1024 * 1024, // 100 MB para permitir imagens grandes
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/construlike\.com\.br\/.*/i,
@@ -49,6 +50,17 @@ export default defineConfig({
               expiration: {
                 maxEntries: 50,
                 maxAgeSeconds: 60 * 60 * 24 * 30 // 30 dias
+              }
+            }
+          },
+          {
+            urlPattern: /\.(jpg|jpeg|png|webp|svg)$/i,
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'images-cache',
+              expiration: {
+                maxEntries: 100,
+                maxAgeSeconds: 60 * 60 * 24 * 7 // 7 dias
               }
             }
           }
