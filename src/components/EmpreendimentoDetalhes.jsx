@@ -75,7 +75,7 @@ const EmpreendimentoDetalhes = () => {
       descricao: '2 e 3 Dorms. c/ Suíte',
       slogan: 'Perto de tudo, ideal para você. Ares tranquilos e funcionalidade admirável, essa é a cidade de Sorocaba. Entre áreas verdes, segurança e renomadas indústrias, há qualidade de vida, diversão e alegria. Você no centro de tudo, próximos a importantes eixos comerciais, escolas renomadas e mobilidade acessível. É mais que uma Mirage, é um novo conceito de viver bem.',
       endereco: 'Av. São Paulo, 2.250 - Jardim Gonçalves, Sorocaba - SP',
-      imagemPrincipal: '/MirageSaoPaulo/implantacao.png',
+      imagemPrincipal: '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Fachada_Diurna_HR.JPG',
       galeria: {
         fachadas: [
           '/MirageSaoPaulo/Perspectiva/Prohidro_Sorocaba_Fachada_Conceitual_R03.jpg',
